@@ -55,8 +55,30 @@ console.group("---------- 3 ----------");
 console.groupEnd("--------------------");
 console.group("---------- 4 ----------");
 
+function deepEqual(a, b){
+    var str1 = str2 = "";
+    for ( var key in a){
+        str1 += a[key] + ":" + key;
+    }
+    for (var key in b){
+        str2 += b[key] + ":" + key;
+    }
+    console.log(str1 + " == " + str2);
+    return str1 == str2;
+} 
 
+var a = {
+ name:       'John',
+ lastname:   'Doe',
+ age:        76
+ };
+ 
+var b = {
+ name:       'John',
+ lastname:   'Doe',
+ age:        76,
+};
 
-
+console.log(deepEqual(a, b));
 
 console.groupEnd("--------------------");
