@@ -1,3 +1,5 @@
+console.group("---------- 1 ----------");
+
 function typesOfArray(arr) {
     var str = 0;
     var obj = 0;
@@ -35,3 +37,26 @@ function typesOfArray(arr) {
 
 }
 typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]);
+
+console.groupEnd("--------------------");
+console.group("---------- 2 ----------");
+
+
+
+
+
+console.groupEnd("--------------------");
+console.group("---------- 3 ----------");
+
+
+
+
+
+console.groupEnd("--------------------");
+console.group("---------- 4 ----------");
+
+
+
+
+
+console.groupEnd("--------------------");
