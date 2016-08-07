@@ -58,6 +58,7 @@ var rangeToArray = function(rangeStart, rangeStop, rangeStep){
     }
     return arr;
 };
+console.log("rangeToArray(1, 3, 1) => " + rangeToArray(1, 3, 1));
 
 var sumArray = function(arr){
     var sum = 0;
@@ -66,6 +67,7 @@ var sumArray = function(arr){
     });
     return sum;
 };
+console.log("sumArray([10, 20, 20]) => " + sumArray([10, 20, 20]));
 
 var multiplyArray = function(arr){
     var sum = 1;
@@ -74,10 +76,12 @@ var multiplyArray = function(arr){
     });
     return sum;
 };
+console.log("multiplyArray(rangeToArray(1, 5, 1)) => " + multiplyArray(rangeToArray(1, 5, 1)));
 
 var reverseArray = function(arr){
     return arr.reverse();
 };
+console.log("reverseArray([1, 2, 3]) => " + reverseArray([1, 2, 3]));
 
 console.groupEnd("--------------------");
 console.group("---------- 3 ----------");
@@ -85,27 +89,24 @@ console.group("---------- 3 ----------");
 (function(){
 
     var text = prompt('write text please');
-    var rightText, percent;
     var punctuations = [',','.','!','?','-',':',';'];
-    var arrP = []; var j = 0;
+    var counterPunctuations = 0;
 
     if( text.length < 1 || text.length > 140 )  text = prompt('write text from 1 to 140 characters');
 
-    var arr = text.split("");
+    var rightText = text
+    .split("")
+    .filter(function(currentValue, index, array) {
+       return (punctuations.indexOf(currentValue) != -1 && currentValue == array[index - 1]) ? false : true;
+    })
+    .map(function(currentValue) {
+        (punctuations.indexOf(currentValue) != -1) ? counterPunctuations++ : false;
+        return currentValue;
+    })
+    .join("");
 
-    for(i = 0; i < arr.length; i++){
-
-        if (punctuations.indexOf(arr[i]) != -1 ){
-            arrP[j] = i;
-            j++;
-        }
-
-    }
-
-    rightText = arr.join("");
-    console.log(arr, arrP);
-
-    console.log("Hey, here's Your original message: %s \n We've found some mistakes, so corrected them for You: %s \n %f, of the text are punctuation marks!", text, rightText, percent);
+    var percent = (counterPunctuations / rightText.length) * 100;  
+    console.log("Hey, here's Your original message: %s \n We've found some mistakes, so corrected them for You: %s \n %f% of the text are punctuation marks!", text, rightText, percent);
 
 })();
 
@@ -116,13 +117,13 @@ console.group("---------- 4 ----------");
 function deepEqual(a, b){
     var str1 = "";
     var str2 = "";
+
     for ( var key in a){
         str1 += a[key] + ":" + key;
     }
     for (var key in b){
         str2 += b[key] + ":" + key;
     }
-    console.log(str1 + " == " + str2);
     return str1 == str2;
 } 
 
@@ -138,6 +139,6 @@ var b = {
  age:        76,
 };
 
-console.log(deepEqual(a, b));
+console.log("deepEqual(a, b) => " + deepEqual(a, b));
 
 console.groupEnd("--------------------");
