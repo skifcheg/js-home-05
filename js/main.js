@@ -8,8 +8,6 @@ function typesOfArray(arr) {
     var nul = 0;
     var und = 0;
 
-    console.info(arr);
-
     for(var i = 0; i < arr.length; i++) {
 
         if(arr[i] !== null) {
@@ -36,7 +34,7 @@ function typesOfArray(arr) {
         );
 
 }
-typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]);
+console.log("typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]) => " + typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]));
 
 console.groupEnd("--------------------");
 console.group("---------- 2 ----------");
