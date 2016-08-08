@@ -34,7 +34,8 @@ function typesOfArray(arr) {
         );
 
 }
-console.log("typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]) => " + typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]));
+console.log("typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]) => ");
+typesOfArray([1, 'a', 'b', {}, {}, null, null, undefined, true, false]);
 
 console.groupEnd("--------------------");
 console.group("---------- 2 ----------");
