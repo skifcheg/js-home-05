@@ -87,11 +87,11 @@ console.group("---------- 3 ----------");
 
 (function(){
 
-    var text = prompt('write text please');
+    var text = prompt('write text please') || "";
     var punctuations = [',','.','!','?','-',':',';'];
     var counterPunctuations = 0;
 
-    if( text.length < 1 || text.length > 140 )  text = prompt('write text from 1 to 140 characters');
+    if( text.length < 1 || text.length > 140 )  text = prompt('write text from 1 to 140 characters') || "";
 
     var rightText = text
     .split("")
